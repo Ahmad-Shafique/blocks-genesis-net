@@ -1,0 +1,3 @@
+type: added
+breaking: false
+summary: "Blocks-Version: a dated API version header resolved per request (header, else the tenant's BlocksVersion pin, else the baseline; latest with no project), echoed on every response and exposed to browsers, with GET /meta/version listing the supported versions. An unknown or retired date answers 400. Decision 0003."

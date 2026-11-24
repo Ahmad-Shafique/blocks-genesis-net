@@ -1,4 +1,4 @@
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace Blocks.Genesis;
 
@@ -30,6 +30,9 @@ public class Tenant: BaseEntity
     public bool IsRootTenant { get; set; }
     public string Environment { get; set; } = string.Empty;
     public string TenantGroupId { get; set; } = string.Empty;
+
+    /// <summary>The project's pinned API version (a Blocks-Version date). Null means the baseline (decision 0003, I11-WP5).</summary>
+    public string? BlocksVersion { get; set; }
 }
 
 [BsonIgnoreExtraElements]
