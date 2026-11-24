@@ -324,6 +324,7 @@ public static class ApplicationConfigurations
                 .AllowAnyHeader()
                 .AllowAnyMethod()
                 .AllowCredentials()
+                .WithExposedHeaders(BlocksApiVersions.HeaderName)
                 .SetPreflightMaxAge(TimeSpan.FromHours(2))
                 .SetIsOriginAllowed(origin => IsOriginAllowed(origin, tenants, app.Environment, allowedCorsOrigins)));
 
@@ -404,6 +405,7 @@ public static class ApplicationConfigurations
 
         var tenantPrefixes = tenantValidationPrefixes?.ToArray() ?? Array.Empty<string>();
         app.UseMiddleware<TenantValidationMiddleware>((object)tenantPrefixes);
+        app.UseMiddleware<BlocksVersionMiddleware>();
         app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
         beforeAuthentication?.Invoke(app);
