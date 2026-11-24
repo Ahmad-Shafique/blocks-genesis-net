@@ -1,0 +1,3 @@
+type: changed
+breaking: false
+summary: Second upstream intake (I00-WP22): upstream main brought in (access stamps, message context, SignalR Redis 10.0.15, exception middleware changes). Our Version 4.7.0 is kept.
